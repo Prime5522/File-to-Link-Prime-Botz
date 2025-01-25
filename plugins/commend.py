@@ -79,7 +79,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('• ʜᴏᴍᴇ •', callback_data='start'),
 	    InlineKeyboardButton('• ᴄʟᴏsᴇ •', callback_data='close_data')
 	],[
-	    InlineKeyboardButton('☢️ ʙᴏᴛ ᴏᴡɴᴇʀ ☢️', url=f"https://t.me/{OWNER_USERNAME}")
+	    InlineKeyboardButton('☢️ ʙᴏᴛ ᴏᴡɴᴇʀ ☢️', url=f"https://t.me/Prime_Nayem")
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         me2 = (await client.get_me()).mention
@@ -91,11 +91,17 @@ async def cb_handler(client: Client, query: CallbackQuery):
     
     elif query.data == "start":
         buttons = [[
-            InlineKeyboardButton('• ᴜᴘᴅᴀᴛᴇᴅ •', url=CHANNEL),
-	    InlineKeyboardButton('• sᴜᴘᴘᴏʀᴛ •', url=SUPPORT)
+            InlineKeyboardButton('➕ 𝗔𝗗𝗗 𝗠𝗘 𝗧𝗢 𝗬𝗢𝗨𝗥 𝗖𝗛𝗔𝗡𝗡𝗘𝗟 ➕', url='https://t.me/File_To_Link_Prime_Bot?startchannel=true')
+        ],[  
+            InlineKeyboardButton('✨ ᴍᴏᴠɪᴇꜱ ᴄʜᴀɴɴᴇʟ ⚡', url='https://t.me/Prime_Movies4U'),
+            InlineKeyboardButton('💬 ꜱᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ 💬', url=SUPPORT)
         ],[
-            InlineKeyboardButton('• ʜᴇʟᴘ •', callback_data='help'),
-            InlineKeyboardButton('• ᴀʙᴏᴜᴛ •', callback_data='about')
+            InlineKeyboardButton('📢 ᴜᴘᴅᴀᴛᴇꜱ ᴄʜᴀɴɴᴇʟ 📢', url=CHANNEL)
+        ],[
+            InlineKeyboardButton('•💁‍♂️ ʜᴇʟᴘ •', callback_data='help'),
+            InlineKeyboardButton('🤗 ᴀʙᴏᴜᴛ •', callback_data='about')
+        ],[
+            InlineKeyboardButton('✧ 💫 𝗖𝗥𝗘𝗔𝗧𝗢𝗥 💫 ☆', url='https://t.me/Prime_Nayem')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
