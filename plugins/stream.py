@@ -23,7 +23,7 @@ async def private_receive_handler(c: Client, m: Message):
             caption=f"**File Name:** {file_id.file_name}\n\n**Requested By:** {m.from_user.mention}"
         )
 
-        stream = f"{URL.rstrip('/')}/watch/{str(msg.id)}?hash={get_hash(msg)}"
+        stream = f"https://zoophagous-lauree-file-to-link-prime-bot-38c42d2f.koyeb.app/watch/{str(msg.id)}?hash={get_hash(msg)}"
         download = f"{URL.rstrip('/')}/{str(msg.id)}?hash={get_hash(msg)}"
 
         # Validate URLs
