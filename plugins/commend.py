@@ -22,7 +22,7 @@ async def start(client, message):
         await client.send_message(LOG_CHANNEL, script.LOG_TEXT.format(message.from_user.id, message.from_user.mention))
     if len(message.command) != 2:
         buttons = [[
-            InlineKeyboardButton('➕ 𝗔𝗗𝗗 𝗠𝗘 𝗧𝗢 𝗬𝗢𝗨𝗥 𝗖𝗛𝗔𝗡𝗡𝗘𝗟 ➕', url='https://t.me/File_To_Link_Prime_Bot?startchannel=true')
+            InlineKeyboardButton('➕ 𝗔𝗗𝗗 𝗠𝗘 𝗧𝗢 𝗬𝗢𝗨𝗥 𝗖𝗛𝗔𝗡𝗡𝗘𝗟 ➕', url='http://t.me/File_To_Link_Prime_Bot?startchannel=true')
         ],[
             InlineKeyboardButton('✨ ᴍᴏᴠɪᴇꜱ ᴄʜᴀɴɴᴇʟ ⚡', url='https://t.me/Prime_Movies4U'),
             InlineKeyboardButton('💬 ꜱᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ 💬', url=SUPPORT)
@@ -54,7 +54,7 @@ async def start(client, message):
             if not is_participant:
                return
             btn = [[
-                InlineKeyboardButton('➕ 𝗔𝗗𝗗 𝗠𝗘 𝗧𝗢 𝗬𝗢𝗨𝗥 𝗖𝗛𝗔𝗡𝗡𝗘𝗟 ➕', url='https://t.me/File_To_Link_Prime_Bot?startchannel=true')
+                InlineKeyboardButton('➕ 𝗔𝗗𝗗 𝗠𝗘 𝗧𝗢 𝗬𝗢𝗨𝗥 𝗖𝗛𝗔𝗡𝗡𝗘𝗟 ➕', url='http://t.me/File_To_Link_Prime_Bot?startchannel=true')
             ],[  
                 InlineKeyboardButton('✨ ᴍᴏᴠɪᴇꜱ ᴄʜᴀɴɴᴇʟ ⚡', url='https://t.me/Prime_Movies4U'),
                 InlineKeyboardButton('💬 ꜱᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ 💬', url=SUPPORT)
@@ -98,7 +98,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     
     elif query.data == "start":
         buttons = [[
-            InlineKeyboardButton('➕ 𝗔𝗗𝗗 𝗠𝗘 𝗧𝗢 𝗬𝗢𝗨𝗥 𝗖𝗛𝗔𝗡𝗡𝗘𝗟 ➕', url='https://t.me/File_To_Link_Prime_Bot?startchannel=true')
+            InlineKeyboardButton('➕ 𝗔𝗗𝗗 𝗠𝗘 𝗧𝗢 𝗬𝗢𝗨𝗥 𝗖𝗛𝗔𝗡𝗡𝗘𝗟 ➕', url='http://t.me/File_To_Link_Prime_Bot?startchannel=true')
         ],[  
             InlineKeyboardButton('✨ ᴍᴏᴠɪᴇꜱ ᴄʜᴀɴɴᴇʟ ⚡', url='https://t.me/Prime_Movies4U'),
             InlineKeyboardButton('💬 ꜱᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ 💬', url=SUPPORT)
