@@ -8,11 +8,8 @@ from .fsub import get_fsub
 from Script import script
 from database.users_db import db
 from pyrogram.errors import FloodWait
-from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, WebAppInfo
-
-# Dont Remove My Credit @AV_BOTz_UPDATE 
-# This Repo Is By @BOT_OWNER26 
-# For Any Kind Of Error Ask Us In Support Group @AV_SUPPORT_GROUP
+from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
+from urllib.parse import quote
 
 @Client.on_message((filters.private) & (filters.document | filters.video | filters.audio), group=4)
 async def private_receive_handler(c: Client, m: Message):
@@ -23,11 +20,11 @@ async def private_receive_handler(c: Client, m: Message):
             caption=f"**File Name:** {file_id.file_name}\n\n**Requested By:** {m.from_user.mention}"
         )
 
-        stream = f"https://zoophagous-lauree-file-to-link-prime-bot-38c42d2f.koyeb.app/watch/{str(msg.id)}?hash={get_hash(msg)}"
-        download = f"{URL.rstrip('/')}/{str(msg.id)}?hash={get_hash(msg)}"
+        stream = f"{URL.rstrip('/')}/watch/{quote(str(msg.id))}?hash={quote(get_hash(msg))}"
+        download = f"{URL.rstrip('/')}/{quote(str(msg.id))}?hash={quote(get_hash(msg))}"
 
         # Validate URLs
-        if not stream.startswith("http") or not download.startswith("http"):
+        if not stream.startswith("https") or not download.startswith("https"):
             await m.reply_text("❌ Invalid stream or download link generated.")
             return
 
@@ -82,7 +79,6 @@ async def private_receive_handler(c: Client, m: Message):
             disable_web_page_preview=True
         )
 
-# Dont Remove My Credit @AV_BOTz_UPDATE 
 
 @Client.on_message(filters.channel & ~filters.group & (filters.document | filters.video | filters.photo) & ~filters.forwarded, group=-1)
 async def channel_receive_handler(bot, broadcast):
@@ -97,8 +93,8 @@ async def channel_receive_handler(bot, broadcast):
 
     try:
         msg = await broadcast.forward(chat_id=BIN_CHANNEL)
-        stream = f"{URL.rstrip('/')}/watch/{str(msg.id)}?hash={get_hash(msg)}"
-        download = f"{URL.rstrip('/')}/{str(msg.id)}?hash={get_hash(msg)}"
+        stream = f"{URL.rstrip('/')}/watch/{quote(str(msg.id))}?hash={quote(get_hash(msg))}"
+        download = f"{URL.rstrip('/')}/{quote(str(msg.id))}?hash={quote(get_hash(msg))}"
 
         await msg.reply_text(
             text=f"**Channel Name:** `{broadcast.chat.title}`\n"
@@ -132,5 +128,4 @@ async def channel_receive_handler(bot, broadcast):
             disable_web_page_preview=True
         )
         print(f"Error: Give me edit permission in updates and bin Channel!\nDetails: {e}")
-
-# Dont Remove My Credit @AV_BOTz_UPDATE
+        
