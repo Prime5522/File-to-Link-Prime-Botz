@@ -37,7 +37,7 @@ BAN_CHNL = [int(ban_chal) if id_pattern.search(ban_chal) else ban_chal for ban_c
 BAN_ALERT = environ.get('BAN_ALERT' , '<b>ʏᴏᴜʀ ᴀʀᴇ ʙᴀɴɴᴇᴅ ᴛᴏ ᴜsᴇ ᴛʜɪs ʙᴏᴛ.ᴄᴏɴᴛᴀᴄᴛ [ᴏᴡɴᴇʀ](https://telegram.me/Prime_Bots_Support_RoBot) ᴛᴏ ʀᴇsᴏʟᴠᴇ ᴛʜᴇ ɪssᴜᴇ!!</b>')
 
 # MongoDB information
-DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://")
+DATABASE_URI = environ.get('DATABASE_URI', "")
 DATABASE_NAME = environ.get('DATABASE_NAME', "cluster0")
 
 # fsub  information
@@ -46,7 +46,7 @@ AUTH_CHANNEL = int(environ.get("AUTH_CHANNEL", "-1002245813234"))
 FSUB = environ.get("FSUB", True)
 
 # port information
-PORT = int(getenv('PORT', '2626'))
+PORT = int(getenv('PORT', '8080'))
 NO_PORT = bool(getenv('NO_PORT', False))
 
 #Dont Remove My Credit @AV_BOTz_UPDATE 
