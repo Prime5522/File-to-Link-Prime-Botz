@@ -21,11 +21,17 @@ async def start(client, message):
         await client.send_message(LOG_CHANNEL, script.LOG_TEXT.format(message.from_user.id, message.from_user.mention))
     if len(message.command) != 2:
         buttons = [[
-            InlineKeyboardButton('• ᴜᴘᴅᴀᴛᴇᴅ •', url=CHANNEL),
-	    InlineKeyboardButton('• sᴜᴘᴘᴏʀᴛ •', url=SUPPORT)
+            InlineKeyboardButton('➕ 𝗔𝗗𝗗 𝗠𝗘 𝗧𝗢 𝗬𝗢𝗨𝗥 𝗖𝗛𝗔𝗡𝗡𝗘𝗟 ➕', url='https://t.me/File_To_Link_Prime_Bot?startchannel=true')
         ],[
-            InlineKeyboardButton('• ʜᴇʟᴘ •', callback_data='help'),
-            InlineKeyboardButton('• ᴀʙᴏᴜᴛ •', callback_data='about')
+            InlineKeyboardButton('✨ ᴍᴏᴠɪᴇꜱ ᴄʜᴀɴɴᴇʟ ⚡', url='https://t.me/Prime_Movies4U'),
+            InlineKeyboardButton('💬 ꜱᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ 💬', url=SUPPORT)
+        ],[
+            InlineKeyboardButton('📢 ᴜᴘᴅᴀᴛᴇꜱ ᴄʜᴀɴɴᴇʟ 📢', url=CHANNEL)
+        ],[
+            InlineKeyboardButton('•💁‍♂️ ʜᴇʟᴘ •', callback_data='help'),
+            InlineKeyboardButton('🤗 ᴀʙᴏᴜᴛ •', callback_data='about')
+        ],[
+            InlineKeyboardButton('✧ 💫 𝗖𝗥𝗘𝗔𝗧𝗢𝗥 💫 ☆', url='https://t.me/Prime_Nayem')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
@@ -41,11 +47,17 @@ async def start(client, message):
             if not is_participant:
                return
             btn = [[
-                InlineKeyboardButton('• ᴜᴘᴅᴀᴛᴇᴅ •', url=CHANNEL),
-	        InlineKeyboardButton('• sᴜᴘᴘᴏʀᴛ •', url=SUPPORT)
+                InlineKeyboardButton('➕ 𝗔𝗗𝗗 𝗠𝗘 𝗧𝗢 𝗬𝗢𝗨𝗥 𝗖𝗛𝗔𝗡𝗡𝗘𝗟 ➕', url='https://t.me/File_To_Link_Prime_Bot?startchannel=true')
+            ],[  
+                InlineKeyboardButton('✨ ᴍᴏᴠɪᴇꜱ ᴄʜᴀɴɴᴇʟ ⚡', url='https://t.me/Prime_Movies4U'),
+                InlineKeyboardButton('💬 ꜱᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ 💬', url=SUPPORT)
             ],[
-                InlineKeyboardButton('• ʜᴇʟᴘ •', callback_data='help'),
-                InlineKeyboardButton('• ᴀʙᴏᴜᴛ •', callback_data='about')
+                InlineKeyboardButton('📢 ᴜᴘᴅᴀᴛᴇꜱ ᴄʜᴀɴɴᴇʟ 📢', url=CHANNEL)
+            ],[
+                InlineKeyboardButton('•💁‍♂️ ʜᴇʟᴘ •', callback_data='help'),
+                InlineKeyboardButton('🤗 ᴀʙᴏᴜᴛ •', callback_data='about')
+            ],[
+                InlineKeyboardButton('✧ 💫 𝗖𝗥𝗘𝗔𝗧𝗢𝗥 💫 ☆', url='https://t.me/Prime_Nayem')
             ]]
             await message.reply_photo(
                 photo=(PICS),
