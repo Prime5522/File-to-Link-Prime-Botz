@@ -7,7 +7,7 @@ from utils import get_size
 from .fsub import get_fsub
 from Script import script
 from database.users_db import db
-from pyrogram.errors import FloodWait, UserNotParticipant
+from pyrogram.errors import *
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, WebAppInfo
 
 #Dont Remove My Credit @AV_BOTz_UPDATE 
@@ -32,7 +32,7 @@ async def private_receive_handler(c: Client, m: Message):
             disable_web_page_preview=True, quote=True
         )
 
-      # await m.delete()  # Delete the original message after processing
+        await m.delete()  # Delete the original message after processing
         
         if FSUB:
             is_participant = await get_fsub(c, m)
@@ -53,15 +53,15 @@ async def private_receive_handler(c: Client, m: Message):
         )
         
         # Wait for 6 hours (21600 seconds)
-  #     await asyncio.sleep(21600)  # Sleep for 6 hours
+        await asyncio.sleep(21600)  # Sleep for 6 hours
 
         # After 6 hours, delete `log_msg`, `a`, and `k`
-  #    try:
-        #  await log_msg.delete()
-      #     await a.delete()
-       #    await k.delete()
-     #  except Exception as e:
-        #   print(f"Error during deletion: {e}")
+        try:
+            await log_msg.delete()
+            await a.delete()
+            await k.delete()
+        except Exception as e:
+            print(f"Error during deletion: {e}")
 
     except FloodWait as e:
         print(f"Sleeping for {str(e.x)}s")
@@ -109,5 +109,3 @@ async def channel_receive_handler(bot, broadcast):
         print(f"Cᴀɴ'ᴛ Eᴅɪᴛ Bʀᴏᴀᴅᴄᴀsᴛ Mᴇssᴀɢᴇ!\nEʀʀᴏʀ:  **Give me edit permission in updates and bin Channel!{e}**")
 
 #Dont Remove My Credit @AV_BOTz_UPDATE 
-#This Repo Is By @BOT_OWNER26 
-# For Any Kind Of Error Ask Us In Support Group @AV_SUPPORT_GROUP
