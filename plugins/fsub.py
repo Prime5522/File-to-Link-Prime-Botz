@@ -14,7 +14,7 @@ async def get_fsub(bot, message):
         await bot.get_chat_member(target_channel_id, user_id)
     except UserNotParticipant:
         channel_link = (await bot.get_chat(target_channel_id)).invite_link
-        keyboard = [[InlineKeyboardButton(" ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ", url=channel_link)],[InlineKeyboardButton("↻ ᴛʀʏ ᴀɢᴀɪɴ", url=f"https://t.me/{BOT_USERNAME}?start=start")]]
+        keyboard = [[InlineKeyboardButton("✇ ᴊᴏɪɴ ᴏᴜʀ ᴜᴘᴅᴀᴛᴇꜱ ᴄʜᴀɴɴᴇʟ ✇", url=channel_link)],[InlineKeyboardButton("↻ ᴛʀʏ ᴀɢᴀɪɴ", url=f"https://t.me/{BOT_USERNAME}?start=start")]]
         await message.reply_photo(
             photo=(AUTH_PICS),
             caption=script.AUTH_TXT.format(message.from_user.mention),
