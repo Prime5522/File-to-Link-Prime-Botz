@@ -10,20 +10,30 @@
     <link rel="stylesheet" type='text/css' href="https://adarsh-goel.github.io/resources/style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Delius">
-
-
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css">
 </head>
 
 <body class='cyber'>
     <header>
         <div class="toogle"></div>
         <div id="file-name" class="cyber">
-            <marquee direction="left"> %s</marquee>
+            <marquee direction="left">%s</marquee>
         </div>
     </header>
 
     <div class="container">
-        <a href=%s>
+        <!-- ভিডিও প্লেয়ার -->
+        <div class="auto-video">
+            <a href="https://t.me/Prime_Botz" target="_blank">
+                <video class="player" autoplay muted loop>
+                    <source src="https://envs.sh/fZO.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </a>
+        </div>
+
+        <!-- ডাউনলোড বাটন -->
+        <a href="%s">
             <button class="cybr-btn">
                 Download
                 <span aria-hidden>_</span>
@@ -33,7 +43,7 @@
         </a>
     </div>
 
-    <script src="https://cdn.plyr.io/3.6.12/plyr.js"></script>
+    <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
     <script>
         const controls = [
             'play-large',
@@ -68,4 +78,4 @@
     </script>
 </body>
 
-    </html>
+</html>
