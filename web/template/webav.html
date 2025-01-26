@@ -116,6 +116,36 @@
             0% { opacity: 1; }
             100% { opacity: 0; }
         }
+
+        /* স্ক্রলিং টেক্সট */
+        .ticker-wrapper {
+            position: relative;
+            width: 100%;
+            background-color: #28a745; /* সবুজ ব্যাকগ্রাউন্ড */
+            color: #fff;
+            font-size: 18px;
+            font-weight: bold;
+            overflow: hidden;
+            padding: 5px 0;
+            margin-top: 20px;
+        }
+
+        .ticker {
+            white-space: nowrap;
+            display: inline-block;
+            animation: ticker 10s linear infinite;
+            padding-left: 100%;
+        }
+
+        @keyframes ticker {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
     </style>
 </head>
 
@@ -124,6 +154,13 @@
         <header>
             <h1 id="file-name">{{file_name}}</h1>
         </header>
+
+        <!-- স্ক্রলিং টেক্সট শিরোনাম -->
+        <div class="ticker-wrapper">
+            <div class="ticker">
+                <span>📢 Watch the latest movies and videos right here! 🎬</span>
+            </div>
+        </div>
 
         <div class="player-container">
             <video class="plyr" controls poster="https://cdn.jsdelivr.net/gh/Botsthe/DATABASE@main/image/well.png">
@@ -216,4 +253,4 @@
     </script>
 
 </body>
-                    </html>
+                </html>
