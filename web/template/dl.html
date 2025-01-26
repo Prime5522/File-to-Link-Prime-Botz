@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Delius">
     <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css">
-    
+
     <style>
         /* ভিডিও সাইজ ছোট করার জন্য */
         .auto-video video {
@@ -33,22 +33,34 @@
             border-radius: 5px;
             text-decoration: none;
         }
+        
         .new-btn:hover {
             background-color: #45a049;
         }
 
         /* বাটনের স্টাইল */
         .cybr-btn {
-            padding: 10px 20px;
-            background-color: #3498db;
-            color: white;
-            border: none;
-            font-size: 16px;
+            background-color: #ff4b2b; /* বাটনের ব্যাকগ্রাউন্ড রঙ */
+            color: white; /* টেক্সটের রঙ */
+            border: 2px solid #ff4b2b; /* বর্ডার স্টাইল */
+            padding: 10px 20px; /* বাটনের আকার */
+            font-size: 18px;
+            font-weight: bold;
             cursor: pointer;
+            transition: all 0.3s ease;
             border-radius: 5px;
         }
+
         .cybr-btn:hover {
-            background-color: #2980b9;
+            background-color: #ff3a1a; /* হোভার করলে রঙ পরিবর্তন */
+            border-color: #ff3a1a;
+            color: #000;
+        }
+
+        .cybr-btn:active {
+            background-color: #d63a1a; /* ক্লিক করলে রঙ পরিবর্তন */
+            border-color: #d63a1a;
+            color: white;
         }
     </style>
 </head>
@@ -102,6 +114,7 @@
             'download',
             'fullscreen'
         ];
+        
         document.addEventListener('DOMContentLoaded', () => {
             const player = Plyr.setup('.player', { controls });
         });
@@ -110,9 +123,10 @@
         const title = document.querySelector('#file-name');
         const footer = document.querySelector('footer');
         const toogle = document.querySelector('.toogle');
+
         toogle.onclick = () => {
             body.classList.toggle('dark')
-            footer.classList.toggle('dark')
+            footer?.classList.toggle('dark')
             title.classList.toggle('dark')
         }
     </script>
