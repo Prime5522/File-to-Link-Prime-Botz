@@ -68,13 +68,9 @@ if 'DYNO' in environ:
     APP_NAME = str(getenv('APP_NAME')) #dont need to fill anything here
 else:
     ON_HEROKU = False
-FQDN = str(getenv('FQDN', 'https://zoophagous-lauree-file-to-link-prime-bot-38c42d2f.koyeb.app')) if not ON_HEROKU or getenv('FQDN', '') else APP_NAME+'.herokuapp.com'
+FQDN = str(getenv('FQDN', 'BIND_ADRESS:PORT')) if not ON_HEROKU or getenv('FQDN', '') else APP_NAME+'.herokuapp.com'
 HAS_SSL=bool(getenv('HAS_SSL',True))
 if HAS_SSL:
-    URL = "https://{}/".format(FQDN)
+    URL = "https://zoophagous-lauree-file-to-link-prime-bot-38c42d2f.koyeb.app/".format(FQDN)
 else:
-    URL = "https://{}/".format(FQDN)
-      
-#Dont Remove My Credit @AV_BOTz_UPDATE 
-#This Repo Is By @BOT_OWNER26 
-# For Any Kind Of Error Ask Us In Support Group @AV_SUPPORT_GROUP
+    URL = "https://zoophagous-lauree-file-to-link-prime-bot-38c42d2f.koyeb.app/".format(FQDN)
