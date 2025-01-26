@@ -14,30 +14,60 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 8px 12px;
-            font-size: 13px;
+            padding: 12px 20px;
+            font-size: 15px;
             font-weight: bold;
             color: #fff;
-            background-color: #007bff;
             border: none;
             border-radius: 5px;
             text-decoration: none;
             cursor: pointer;
             margin: 5px;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         .btn i {
-            margin-right: 5px;
+            margin-right: 8px;
         }
 
-        .new-btn {
+        .btn:hover {
+            transform: scale(1.05);
+        }
+
+        .btn:active {
+            transform: scale(0.95);
+        }
+
+        .btn.download {
             background-color: #28a745;
         }
 
+        .btn.download:hover {
+            background-color: #218838;
+        }
+
+        .btn.copy-link {
+            background-color: #ffc107;
+            color: #333;
+        }
+
+        .btn.copy-link:hover {
+            background-color: #e0a800;
+        }
+
+        .btn.player {
+            background-color: #ff5722;
+        }
+
+        .btn.player:hover {
+            background-color: #e64a19;
+        }
+
         .player-logo {
-            width: 16px;
-            height: 16px;
-            margin-right: 5px;
+            width: 18px;
+            height: 18px;
+            margin-right: 8px;
         }
 
         .auto-video video {
@@ -56,6 +86,23 @@
         .container {
             text-align: center;
             padding: 20px;
+        }
+
+        .feedback {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #000;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            animation: fadeOut 3s forwards;
+        }
+
+        @keyframes fadeOut {
+            0% { opacity: 1; }
+            100% { opacity: 0; }
         }
     </style>
 </head>
@@ -85,25 +132,25 @@
 
         <!-- প্লেয়ার অপশন -->
         <div class="player-options">
-            <button class="btn" onclick="playOnline('vlc')">
+            <button class="btn player" onclick="playOnline('vlc')">
                 <img src="https://cdn.jsdelivr.net/gh/Botsthe/DATABASE@main/image/vlc.png" class="player-logo"> VLC Player
             </button>
-            <button class="btn" onclick="playOnline('mx')">
+            <button class="btn player" onclick="playOnline('mx')">
                 <img src="https://cdn.jsdelivr.net/gh/Botsthe/DATABASE@main/image/mx.png" class="player-logo"> MX Player
             </button>
-            <button class="btn" onclick="playOnline('np')">
+            <button class="btn player" onclick="playOnline('np')">
                 <img src="https://cdn.jsdelivr.net/gh/Botsthe/DATABASE@main/image/nPlayer.webp" class="player-logo"> nPlayer
             </button>
         </div>
 
         <!-- নতুন দুইটা ছোট বাটন -->
         <div class="new-buttons">
-            <a href="https://t.me/Prime_Botz" class="btn new-btn">
+            <a href="https://t.me/Prime_Botz" class="btn download">
                 <img src="https://cdn.jsdelivr.net/gh/Botsthe/DATABASE@main/image/telegram.png" class="player-logo">
                 Updates Channel
             </a>
 
-            <a href="https://t.me/Prime_Movies4u" class="btn new-btn">
+            <a href="https://t.me/Prime_Movies4u" class="btn download">
                 <img src="https://cdn.jsdelivr.net/gh/Botsthe/DATABASE@main/image/telegram.png" class="player-logo">
                 More Videos
             </a>
@@ -146,11 +193,15 @@
         function copyLink() {
             navigator.clipboard.writeText(finalUrl)
                 .then(() => {
-                    alert("📋 Link copied to clipboard!");
+                    const feedback = document.createElement('div');
+                    feedback.className = 'feedback';
+                    feedback.textContent = '📋 Link copied to clipboard!';
+                    document.body.appendChild(feedback);
+                    setTimeout(() => feedback.remove(), 3000);
                 })
                 .catch(err => console.error('Could not copy text: ', err));
         }
     </script>
 
 </body>
-</html>
+    </html>
