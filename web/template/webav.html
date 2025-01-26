@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Botsthe/DATABASE@main/style.css">
     <style>
+        /* বাটন ডিজাইন */
         .btn {
             display: inline-flex;
             align-items: center;
@@ -27,10 +28,7 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
-        .btn i {
-            margin-right: 8px;
-        }
-
+        /* Hover effect */
         .btn:hover {
             transform: scale(1.05);
         }
@@ -39,43 +37,57 @@
             transform: scale(0.95);
         }
 
+        /* বাটনের কালার */
         .btn.download {
-            background-color: #28a745;
+            background-color: #28a745; /* Green */
         }
 
         .btn.download:hover {
-            background-color: #218838;
+            background-color: #218838; /* Darker green */
         }
 
         .btn.copy-link {
-            background-color: #ffc107;
+            background-color: #ffc107; /* Yellow */
             color: #333;
         }
 
         .btn.copy-link:hover {
-            background-color: #e0a800;
+            background-color: #e0a800; /* Darker yellow */
         }
 
         .btn.player {
-            background-color: #ff5722;
+            background-color: #ff5722; /* Red */
         }
 
         .btn.player:hover {
-            background-color: #e64a19;
+            background-color: #e64a19; /* Darker red */
         }
 
+        /* নতুন বাটনের ডিজাইন */
+        .new-buttons .btn {
+            background-color: #00bcd4; /* Cyan */
+            color: white;
+        }
+
+        .new-buttons .btn:hover {
+            background-color: #0097a7; /* Dark cyan */
+        }
+
+        /* প্লেয়ার লোগোর সাইজ */
         .player-logo {
             width: 18px;
             height: 18px;
             margin-right: 8px;
         }
 
+        /* ছোট ভিডিও */
         .auto-video video {
             width: 300px;
             height: 150px;
             border-radius: 5px;
         }
 
+        /* কন্ট্রোল ও প্লেয়ার অপশন সেন্টার করে রাখার জন্য */
         .controls, .player-options, .new-buttons {
             margin-top: 15px;
             display: flex;
@@ -204,4 +216,4 @@
     </script>
 
 </body>
-    </html>
+                    </html>
