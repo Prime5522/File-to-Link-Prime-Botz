@@ -7,34 +7,28 @@ from utils import get_size
 from .fsub import get_fsub
 from Script import script
 from database.users_db import db
-from pyrogram.errors import FloodWait
-from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
-from urllib.parse import quote
+from pyrogram.errors import FloodWait, UserNotParticipant
+from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, WebAppInfo
 
-@Client.on_message((filters.private) & (filters.document | filters.video | filters.audio), group=4)
+#Dont Remove My Credit @AV_BOTz_UPDATE 
+#This Repo Is By @BOT_OWNER26 
+# For Any Kind Of Error Ask Us In Support Group @AV_SUPPORT_GROUP
+
+@Client.on_message((filters.private) & (filters.document | filters.video | filters.audio) , group=4)
 async def private_receive_handler(c: Client, m: Message):
     file_id = m.document or m.video or m.audio
-    try:
+    try:  # This is the outer try block
         msg = await m.copy(
             chat_id=BIN_CHANNEL,
-            caption=f"**File Name:** {file_id.file_name}\n\n**Requested By:** {m.from_user.mention}"
-        )
-
-        stream = f"{URL.rstrip('/')}/watch/{quote(str(msg.id))}?hash={quote(get_hash(msg))}"
-        download = f"{URL.rstrip('/')}/{quote(str(msg.id))}?hash={quote(get_hash(msg))}"
-
-        # Validate URLs
-        if not stream.startswith("https") or not download.startswith("https"):
-            await m.reply_text("❌ Invalid stream or download link generated.")
-            return
-
+            caption=f"**File Name:** {file_id.file_name}\n\n**Requested By:** {m.from_user.mention}")
+        
+        stream = f"{URL}watch/{str(msg.id)}?hash={get_hash(msg)}"
+        download = f"{URL}{str(msg.id)}?hash={get_hash(msg)}"
         file_name = file_id.file_name.replace("_", " ").replace(".mp4", "").replace(".mkv", "").replace(".", " ")
-        size = get_size(file_id.file_size)
-
+        size=get_size(file_id.file_size)
+        
         a = await msg.reply_text(
-            text=f"Requested by: [{m.from_user.first_name}](tg://user?id={m.from_user.id})\n"
-                 f"User ID: {m.from_user.id}\n"
-                 f"Stream link: {stream}",
+            text=f"ʀᴇǫᴜᴇꜱᴛᴇᴅ ʙʏ : [{m.from_user.first_name}](tg://user?id={m.from_user.id})\nUꜱᴇʀ ɪᴅ : {m.from_user.id}\nStream ʟɪɴᴋ : {stream}",
             disable_web_page_preview=True, quote=True
         )
 
@@ -43,27 +37,27 @@ async def private_receive_handler(c: Client, m: Message):
         if FSUB:
             is_participant = await get_fsub(c, m)
             if not is_participant:
-                return
+               return
                 
         ban_chk = await db.is_banned(int(m.from_user.id))
-        if ban_chk:
+        if ban_chk == True:
             return await m.reply(BAN_ALERT)
         
         k = await m.reply_text(
             text=script.CAPTION_TXT.format(file_name, size, stream, download),
             quote=True,
             reply_markup=InlineKeyboardMarkup([
-                [InlineKeyboardButton("• Stream •", url=stream),
-                 InlineKeyboardButton("• Download •", url=download)]
+                [InlineKeyboardButton("• ꜱᴛʀᴇᴀᴍ •", url=stream),
+                 InlineKeyboardButton("• ᴅᴏᴡɴʟᴏᴀᴅ •", url=download)]
             ])
         )
         
         # Wait for 6 hours (21600 seconds)
-        await asyncio.sleep(21600)
+        await asyncio.sleep(21600)  # Sleep for 6 hours
 
-        # After 6 hours, delete messages
+        # After 6 hours, delete `log_msg`, `a`, and `k`
         try:
-            await msg.delete()
+            await log_msg.delete()
             await a.delete()
             await k.delete()
         except Exception as e:
@@ -72,60 +66,48 @@ async def private_receive_handler(c: Client, m: Message):
     except FloodWait as e:
         print(f"Sleeping for {str(e.x)}s")
         await asyncio.sleep(e.x)
-        await c.send_message(
-            chat_id=BIN_CHANNEL,
-            text=f"FloodWait triggered: {str(e.x)}s from [{m.from_user.first_name}](tg://user?id={m.from_user.id})\n\n"
-                 f"**User ID:** `{str(m.from_user.id)}`",
-            disable_web_page_preview=True
-        )
+        await c.send_message(chat_id=BIN_CHANNEL, text=f"Gᴏᴛ FʟᴏᴏᴅWᴀɪᴛ ᴏғ {str(e.x)}s from [{m.from_user.first_name}](tg://user?id={m.from_user.id})\n\n**𝚄𝚜𝚎𝚛 𝙸𝙳 :** `{str(m.from_user.id)}`", disable_web_page_preview=True)
 
+#Dont Remove My Credit @AV_BOTz_UPDATE 
+#This Repo Is By @BOT_OWNER26 
+# For Any Kind Of Error Ask Us In Support Group @AV_SUPPORT_GROUP
 
-@Client.on_message(filters.channel & ~filters.group & (filters.document | filters.video | filters.photo) & ~filters.forwarded, group=-1)
+@Client.on_message(filters.channel & ~filters.group & (filters.document | filters.video | filters.photo)  & ~filters.forwarded, group=-1)
 async def channel_receive_handler(bot, broadcast):
     if int(broadcast.chat.id) in BAN_CHNL:
-        print("Blocked channel trying to get streaming link, skipping...")
+        print("chat trying to get straming link is found in BAN_CHNL,so im not going to give stram link")
         return
-
     ban_chk = await db.is_banned(int(broadcast.chat.id))
     if (int(broadcast.chat.id) in BANNED_CHANNELS) or (ban_chk == True):
         await bot.leave_chat(broadcast.chat.id)
         return
-
-    try:
+    try:  # This is the outer try block
         msg = await broadcast.forward(chat_id=BIN_CHANNEL)
-        stream = f"{URL.rstrip('/')}/watch/{quote(str(msg.id))}?hash={quote(get_hash(msg))}"
-        download = f"{URL.rstrip('/')}/{quote(str(msg.id))}?hash={quote(get_hash(msg))}"
+        stream = f"{URL}watch/{str(msg.id)}?hash={get_hash(msg)}"
+        download = f"{URL}{str(msg.id)}?hash={get_hash(msg)}"
 
         await msg.reply_text(
-            text=f"**Channel Name:** `{broadcast.chat.title}`\n"
-                 f"**Channel ID:** `{broadcast.chat.id}`\n"
-                 f"**Request URL:** {stream}",
+            text=f"**Channel Name:** `{broadcast.chat.title}`\n**CHANNEL ID:** `{broadcast.chat.id}`\n**Rᴇǫᴜᴇsᴛ ᴜʀʟ:** {stream}",
             quote=True
         )
-
         await bot.edit_message_reply_markup(
             chat_id=broadcast.chat.id,
             message_id=broadcast.id,
             reply_markup=InlineKeyboardMarkup([
-                [InlineKeyboardButton("Stream", url=stream),
-                 InlineKeyboardButton("Download", url=download)]
+                [InlineKeyboardButton("ꜱᴛʀᴇᴀᴍ ", url=stream),
+                 InlineKeyboardButton("ᴅᴏᴡɴʟᴏᴀᴅ ", url=download)]
             ])
         )
-
     except FloodWait as w:
         print(f"Sleeping for {str(w.x)}s")
         await asyncio.sleep(w.x)
-        await bot.send_message(
-            chat_id=BIN_CHANNEL,
-            text=f"FloodWait triggered: {str(w.x)}s from {broadcast.chat.title}\n\n"
-                 f"**Channel ID:** `{str(broadcast.chat.id)}`",
-            disable_web_page_preview=True
-        )
+        await bot.send_message(chat_id=BIN_CHANNEL,
+                            text=f"GOT FLOODWAIT OF {str(w.x)}s FROM {broadcast.chat.title}\n\n**CHANNEL ID:** `{str(broadcast.chat.id)}`",
+                            disable_web_page_preview=True)
     except Exception as e:
-        await bot.send_message(
-            chat_id=BIN_CHANNEL,
-            text=f"**#ERROR_TRACEBACK:** `{e}`",
-            disable_web_page_preview=True
-        )
-        print(f"Error: Give me edit permission in updates and bin Channel!\nDetails: {e}")
-        
+        await bot.send_message(chat_id=BIN_CHANNEL, text=f"**#ERROR_TRACKEBACK:** `{e}`", disable_web_page_preview=True)
+        print(f"Cᴀɴ'ᴛ Eᴅɪᴛ Bʀᴏᴀᴅᴄᴀsᴛ Mᴇssᴀɢᴇ!\nEʀʀᴏʀ:  **Give me edit permission in updates and bin Channel!{e}**")
+
+#Dont Remove My Credit @AV_BOTz_UPDATE 
+#This Repo Is By @BOT_OWNER26 
+# For Any Kind Of Error Ask Us In Support Group @AV_SUPPORT_GROUP
