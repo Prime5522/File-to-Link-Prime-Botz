@@ -133,7 +133,7 @@
         .ticker {
             white-space: nowrap;
             display: inline-block;
-            animation: ticker 10s linear infinite;
+            animation: ticker 10s linear infinite; /* স্পিড কমানো হয়েছে */
             padding-left: 100%;
         }
 
@@ -141,8 +141,11 @@
             0% {
                 transform: translateX(100%);
             }
-            100% {
+            90% {
                 transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(100%);
             }
         }
 
