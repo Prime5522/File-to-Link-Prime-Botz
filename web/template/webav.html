@@ -1,239 +1,109 @@
-<!-- this code is modified @BOT_OWNER26 tg :- @AV_BOTz_UPDATE -->
-
-
-
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Botsthe/DATABASE@main/image/live.png">
-
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
     <title>ᴘʀɪᴍᴇ ʙᴏᴛᴢ | {{file_name}}</title>
-
     <link rel="icon" href="https://cdn.jsdelivr.net/gh/Botsthe/DATABASE@main/image/logo.png" type="image/x-icon">
-
     <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Botsthe/DATABASE@main/style.css">
-
 </head>
 
-
-
-<!-- this code is modified @BOT_OWNER26 tg :- @AV_BOTz_UPDATE -->
-
-    
-
 <body>
-
     <div class="container">
-
         <header>
-
             <h1 id="file-name">{{file_name}}</h1>
-
         </header>
 
         <div class="player-container">
-
-            <div class="video-wrapper">
-
-                <video class="plyr" controls poster="https://cdn.jsdelivr.net/gh/Botsthe/DATABASE@main/image/well.png" alt="Video Player Poster Image">
-
-                    <source src="{{file_url}}" type="video/mp4" alt="Video Source">
-
-                    Your browser does not support the video tag.
-
-                </video>
-
-            </div>
-
+            <video class="plyr" controls poster="https://cdn.jsdelivr.net/gh/Botsthe/DATABASE@main/image/well.png">
+                <source src="{{file_url}}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
         </div>
 
-
-
-<!-- this code is modified @BOT_OWNER26 tg :- @AV_BOTz_UPDATE-->
-
-        
-
+        <!-- কন্ট্রোল বাটন -->
         <div class="controls">
-
             <button class="btn download" onclick="download()">
-
                 <i class="fas fa-cloud-download-alt"></i> Download
-
             </button>
-
             <button class="btn copy-link" onclick="copyLink()">
-
                 <i class="fas fa-link"></i> Copy Link
-
             </button>
-
-        </div> 
-
-        <div class="container">
-
-            <button class="btn download" onclick="playOnline('vlc')">
-
-                <img src="https://cdn.jsdelivr.net/gh/Botsthe/DATABASE@main/image/vlc.png" alt="VLC Mobile" class="player-logo"> VLC Player
-
-            </button>
-
-            <button class="btn copy-link" onclick="playOnline('mx')">
-
-                <img src="https://cdn.jsdelivr.net/gh/Botsthe/DATABASE@main/image/mx.png" alt="MX Player" class="player-logo"> MX Player
-
-            </button>
-
-            <button class="btn download" onclick="playOnline('np')">
-
-                <img src="https://cdn.jsdelivr.net/gh/Botsthe/DATABASE@main/image/nPlayer.webp" alt="nPlayer" class="player-logo"> nPlayer
-
-            </button>
-
-            <button class="btn download" onclick="playOnline('sp')">
-
-                <img src="https://cdn.jsdelivr.net/gh/Botsthe/DATABASE@main/image/splayer.webp" alt="S Player" class="player-logo"> S Player
-
-            </button>
-
-            <button class="btn download" onclick="playOnline('km')">
-
-                <img src="https://cdn.jsdelivr.net/gh/Botsthe/DATABASE@main/image/km.webp" alt="KM Player" class="player-logo"> KM Player
-
-            </button>
-
         </div>
 
-
-
-<!-- this code is modified @BOT_OWNER26 tg :- @AV_BOTz_UPDATE-->
-
-        
-
-        <div class="container">
-
-            <header>
-
-                <a href="http://youtube.com/@avbotx"> <img src="https://cdn.jsdelivr.net/gh/Botsthe/DATABASE@main/image/youtube.png" class="player-logo"></a>
-
-                <a href="http://GitHub.com/Botsthe"> <img src="https://cdn.jsdelivr.net/gh/Botsthe/DATABASE@main/image/github.png" class="player-logo"></a>
-
-                <a href="http://t.me/BOT_OWNER26"> <img src="https://cdn.jsdelivr.net/gh/Botsthe/DATABASE@main/image/telegram.png" class="player-logo"></a>
-
-                <a href="https://www.instagram.com/aman_developerr"> <img src="https://cdn.jsdelivr.net/gh/Botsthe/DATABASE@main/image/instagram.png" class="player-logo"></a>
-
-            </header>
-
+        <!-- প্লেয়ার অপশন -->
+        <div class="player-options">
+            <button class="btn" onclick="playOnline('vlc')">
+                <img src="https://cdn.jsdelivr.net/gh/Botsthe/DATABASE@main/image/vlc.png" class="player-logo"> VLC Player
+            </button>
+            <button class="btn" onclick="playOnline('mx')">
+                <img src="https://cdn.jsdelivr.net/gh/Botsthe/DATABASE@main/image/mx.png" class="player-logo"> MX Player
+            </button>
+            <button class="btn" onclick="playOnline('np')">
+                <img src="https://cdn.jsdelivr.net/gh/Botsthe/DATABASE@main/image/nPlayer.webp" class="player-logo"> nPlayer
+            </button>
         </div>
 
-    </div>
+        <!-- নতুন দুইটা বাটন -->
+        <div class="new-buttons">
+    <!-- Updates Channel Button -->
+    <a href="https://t.me/your_updates_channel" class="btn new-btn">
+        <img src="https://cdn.jsdelivr.net/gh/Botsthe/DATABASE@main/image/telegram.png" class="player-logo">
+        Our Updates Channel
+    </a>
 
+    <!-- Join for More Videos Button -->
+    <a href="https://t.me/your_join_channel" class="btn new-btn">
+        <img src="https://cdn.jsdelivr.net/gh/Botsthe/DATABASE@main/image/telegram.png" class="player-logo">
+        Join for More Videos
+    </a>
+</div>
 
-
-<!-- this code is modified @BOT_OWNER26 tg :- @AV_BOTz_UPDATE-->
-
-    
+<!-- Below the buttons, video with link -->
+<div class="auto-video">
+    <a href="https://t.me/Prime_Botz" target="_blank">
+        <video autoplay muted loop>
+            <source src="https://envs.sh/fZO.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </a>
+</div>
 
     <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
-
     <script>
-
         document.addEventListener('DOMContentLoaded', () => {
-
             const videoElement = document.querySelector('.plyr');
-
             new Plyr(videoElement);
-
         });
 
-
-
         const currentUrl = window.location.href;
-
         const finalUrl = currentUrl.replace("/watch/", "/dl/");
 
-
-
-<!-- this code is modified @BOT_OWNER26 tg :- @AV_BOTz_UPDATE-->
-
-        
-
         function playOnline(player) {
-
             const playerUrls = {
-
                 vlc: `vlc://${finalUrl}`,
-
-                mxp: `intent:${finalUrl}#Intent;package=com.mxtech.videoplayer.pro;end`,
-
                 mx: `intent:${finalUrl}#Intent;package=com.mxtech.videoplayer.ad;end`,
-
-                np: `nplayer-${finalUrl}`,
-
-                sp: `intent:${finalUrl}#Intent;action=com.young.simple.player.playback_online;package=com.young.simple.player;end`,
-
-                km: `intent:${finalUrl}#Intent;package=com.kmplayer;end`
-
+                np: `nplayer-${finalUrl}`
             };
-
             window.location.href = playerUrls[player] || finalUrl;
-
         }
-
-
 
         function download() {
-
             window.location.href = finalUrl;
-
         }
-
-
 
         function copyLink() {
-
             navigator.clipboard.writeText(finalUrl)
-
                 .then(() => {
-
-                    const feedback = document.createElement('div');
-
-                    feedback.className = 'feedback';
-
-                    feedback.textContent = "📋 Link copied to clipboard!";
-
-                    feedback.setAttribute("role", "alert");
-
-                    document.body.appendChild(feedback);
-
-                    setTimeout(() => feedback.remove(), 3000);
-
+                    alert("📋 Link copied to clipboard!");
                 })
-
                 .catch(err => console.error('Could not copy text: ', err));
-
         }
-
     </script>
 
 </body>
-
-</html
-
-
-
-<!-- this code is modified @BOT_OWNER26 tg :- @AV_BOTz_UPDATE-->
+    </html>
+    
