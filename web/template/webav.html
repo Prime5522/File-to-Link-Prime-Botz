@@ -9,6 +9,55 @@
     <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Botsthe/DATABASE@main/style.css">
+    <style>
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 12px;
+            font-size: 13px;
+            font-weight: bold;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        .btn i {
+            margin-right: 5px;
+        }
+
+        .new-btn {
+            background-color: #28a745;
+        }
+
+        .player-logo {
+            width: 16px;
+            height: 16px;
+            margin-right: 5px;
+        }
+
+        .auto-video video {
+            width: 300px;
+            height: 150px;
+            border-radius: 5px;
+        }
+
+        .controls, .player-options, .new-buttons {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
 </head>
 
 <body>
@@ -47,30 +96,29 @@
             </button>
         </div>
 
-        <!-- নতুন দুইটা বাটন -->
+        <!-- নতুন দুইটা ছোট বাটন -->
         <div class="new-buttons">
-    <!-- Updates Channel Button -->
-    <a href="https://t.me/Prime_Botz" class="btn new-btn">
-        <img src="https://cdn.jsdelivr.net/gh/Botsthe/DATABASE@main/image/telegram.png" class="player-logo">
-        Our Updates Channel
-    </a>
+            <a href="https://t.me/Prime_Botz" class="btn new-btn">
+                <img src="https://cdn.jsdelivr.net/gh/Botsthe/DATABASE@main/image/telegram.png" class="player-logo">
+                Updates Channel
+            </a>
 
-    <!-- Join for More Videos Button -->
-    <a href="https://t.me/Prime_Movies4u" class="btn new-btn">
-        <img src="https://cdn.jsdelivr.net/gh/Botsthe/DATABASE@main/image/telegram.png" class="player-logo">
-        Join for More Videos
-    </a>
-</div>
+            <a href="https://t.me/Prime_Movies4u" class="btn new-btn">
+                <img src="https://cdn.jsdelivr.net/gh/Botsthe/DATABASE@main/image/telegram.png" class="player-logo">
+                More Videos
+            </a>
+        </div>
 
-<!-- Below the buttons, video with link -->
-<div class="auto-video">
-    <a href="https://t.me/Prime_Botz" target="_blank">
-        <video autoplay muted loop>
-            <source src="https://envs.sh/fZO.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-    </a>
-</div>
+        <!-- ছোট ভিডিও -->
+        <div class="auto-video">
+            <a href="https://t.me/Prime_Botz" target="_blank">
+                <video autoplay muted loop>
+                    <source src="https://envs.sh/fZO.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </a>
+        </div>
+    </div>
 
     <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
     <script>
@@ -105,5 +153,4 @@
     </script>
 
 </body>
-    </html>
-    
+</html>
