@@ -133,7 +133,7 @@
         .ticker {
             white-space: nowrap;
             display: inline-block;
-            animation: ticker 20s linear infinite; /* ২০ সেকেন্ডে স্ক্রল */
+            animation: ticker 25s linear infinite; /* ৮ সেকেন্ডে স্ক্রল */
             padding-left: 100%;
         }
 
@@ -251,10 +251,11 @@
                     document.body.appendChild(feedback);
                     setTimeout(() => feedback.remove(), 3000);
                 })
-                .catch(err => console.error('Could not copy text: ', err));
+                .catch(() => {
+                    alert("Failed to copy link!");
+                });
         }
     </script>
-
 </body>
     </html>
     
