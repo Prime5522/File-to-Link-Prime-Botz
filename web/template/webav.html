@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Botsthe/DATABASE@main/style.css">
     <style>
+        /* বাটন ডিজাইন */
         .btn {
             display: inline-flex;
             align-items: center;
@@ -27,6 +28,7 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
+        /* Hover effect */
         .btn:hover {
             transform: scale(1.05);
         }
@@ -35,23 +37,62 @@
             transform: scale(0.95);
         }
 
+        /* বাটনের কালার */
         .btn.download {
-            background-color: #28a745;
+            background-color: #28a745; /* Green */
+        }
+
+        .btn.download:hover {
+            background-color: #218838; /* Darker green */
         }
 
         .btn.copy-link {
-            background-color: #ffc107;
+            background-color: #ffc107; /* Yellow */
             color: #333;
         }
 
-        .btn.player {
-            background-color: #ff5722;
+        .btn.copy-link:hover {
+            background-color: #e0a800; /* Darker yellow */
         }
 
+        .btn.player {
+            background-color: #ff5722; /* Red */
+        }
+
+        .btn.player:hover {
+            background-color: #e64a19; /* Darker red */
+        }
+
+        /* নতুন বাটনের ডিজাইন */
+        .new-buttons .btn {
+            background-color: #00bcd4; /* Cyan */
+            color: white;
+        }
+
+        .new-buttons .btn:hover {
+            background-color: #0097a7; /* Dark cyan */
+        }
+
+        /* প্লেয়ার লোগোর সাইজ */
         .player-logo {
             width: 18px;
             height: 18px;
             margin-right: 8px;
+        }
+
+        /* ছোট ভিডিও */
+        .auto-video video {
+            width: 300px;
+            height: 150px;
+            border-radius: 5px;
+        }
+
+        /* কন্ট্রোল ও প্লেয়ার অপশন সেন্টার করে রাখার জন্য */
+        .controls, .player-options, .new-buttons {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
         .container {
@@ -59,10 +100,28 @@
             padding: 20px;
         }
 
+        .feedback {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #000;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            animation: fadeOut 3s forwards;
+        }
+
+        @keyframes fadeOut {
+            0% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        /* স্ক্রলিং টেক্সট */
         .ticker-wrapper {
             position: relative;
             width: 100%;
-            background-color: #28a745;
+            background-color: #28a745; /* সবুজ ব্যাকগ্রাউন্ড */
             color: #fff;
             font-size: 18px;
             font-weight: bold;
@@ -74,7 +133,7 @@
         .ticker {
             white-space: nowrap;
             display: inline-block;
-            animation: ticker 20s linear infinite;
+            animation: ticker 20s linear infinite; /* ২০ সেকেন্ডে স্ক্রল */
             padding-left: 100%;
         }
 
@@ -82,21 +141,27 @@
             0% {
                 transform: translateX(100%);
             }
-            100% {
+            90% {
                 transform: translateX(-100%);
             }
+            100% {
+                transform: translateX(100%);
+            }
         }
+
     </style>
 </head>
+
 <body>
     <div class="container">
         <header>
             <h1 id="file-name">{{file_name}}</h1>
         </header>
 
+        <!-- স্ক্রলিং টেক্সট শিরোনাম -->
         <div class="ticker-wrapper">
             <div class="ticker">
-                <span>📢 Watch the latest movies and videos right here! 🎬 If you want any bot then you can contact our support group @Prime_Botz_Support 🙂</span>
+                <span>Hi Everyone 👋.📢 Watch the latest movies and videos right here! 🎬 if you want any bot then you can contact our support group @Prime_Botz_Support 🙂</span>
             </div>
         </div>
 
@@ -107,6 +172,7 @@
             </video>
         </div>
 
+        <!-- কন্ট্রোল বাটন -->
         <div class="controls">
             <button class="btn download" onclick="download()">
                 <i class="fas fa-cloud-download-alt"></i> Download
@@ -116,6 +182,7 @@
             </button>
         </div>
 
+        <!-- প্লেয়ার অপশন -->
         <div class="player-options">
             <button class="btn player" onclick="playOnline('vlc')">
                 <img src="https://cdn.jsdelivr.net/gh/Botsthe/DATABASE@main/image/vlc.png" class="player-logo"> VLC Player
@@ -126,6 +193,29 @@
             <button class="btn player" onclick="playOnline('np')">
                 <img src="https://cdn.jsdelivr.net/gh/Botsthe/DATABASE@main/image/nPlayer.webp" class="player-logo"> nPlayer
             </button>
+        </div>
+
+        <!-- নতুন দুইটা ছোট বাটন -->
+        <div class="new-buttons">
+            <a href="https://t.me/Prime_Botz" class="btn download">
+                <img src="https://cdn.jsdelivr.net/gh/Botsthe/DATABASE@main/image/telegram.png" class="player-logo">
+                Updates Channel
+            </a>
+
+            <a href="https://t.me/Prime_Movies4u" class="btn download">
+                <img src="https://cdn.jsdelivr.net/gh/Botsthe/DATABASE@main/image/telegram.png" class="player-logo">
+                More Videos
+            </a>
+        </div>
+
+        <!-- ছোট ভিডিও -->
+        <div class="auto-video">
+            <a href="https://t.me/Prime_Botz" target="_blank">
+                <video autoplay muted loop>
+                    <source src="https://envs.sh/fZO.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </a>
         </div>
     </div>
 
@@ -155,11 +245,16 @@
         function copyLink() {
             navigator.clipboard.writeText(finalUrl)
                 .then(() => {
-                    alert('📋 Link copied to clipboard!');
+                    const feedback = document.createElement('div');
+                    feedback.className = 'feedback';
+                    feedback.textContent = '📋 Link copied to clipboard!';
+                    document.body.appendChild(feedback);
+                    setTimeout(() => feedback.remove(), 3000);
                 })
                 .catch(err => console.error('Could not copy text: ', err));
         }
     </script>
+
 </body>
     </html>
     
