@@ -6,7 +6,7 @@
 
 Here is our Demo bot -
 
-[![Click Here](https://img.shields.io/badge/Demo%20Bot-Click%20Here-blue?style=flat&logo=telegram&labelColor=white&link=https://t.me/AV_SUPPORT_GROUP)](https://t.me/AV_F2L_BOT)
+[![Click Here](https://img.shields.io/badge/Demo%20Bot-Click%20Here-blue?style=flat&logo=telegram&labelColor=white&link=https://t.me/AV_SUPPORT_GROUP)](https://t.me/File_To_Link_Prime_Bot)
 
 ### Need Deployment Support?
 
@@ -16,7 +16,7 @@ If you encounter any issues deploying the bot, feel free to seek assistance in o
 
   <h1 align="center"></h1>
 <p align="center"> 
-  <img src="https://envs.sh/b6H.jpg" alt="Cover Image" width="650">
+  <img src="https://envs.sh/aWi.jpg" alt="Cover Image" width="650">
   </a>
  <p align="center">
     A Telegram bot to turn all media and documents files to instant direct download and stream link .
