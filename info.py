@@ -71,6 +71,6 @@ else:
 FQDN = str(getenv('FQDN', 'BIND_ADRESS:PORT')) if not ON_HEROKU or getenv('FQDN', '') else APP_NAME+'.herokuapp.com'
 HAS_SSL=bool(getenv('HAS_SSL',True))
 if HAS_SSL:
-    URL = "https://zoophagous-lauree-file-to-link-prime-bot-38c42d2f.koyeb.app/".format(FQDN)
+    URL = "https://homely-cher-file-to-link-prime-bot-b98d6fc2.koyeb.app/".format(FQDN)
 else:
-    URL = "https://zoophagous-lauree-file-to-link-prime-bot-38c42d2f.koyeb.app/".format(FQDN)
+    URL = "https://homely-cher-file-to-link-prime-bot-b98d6fc2.koyeb.app/".format(FQDN)
