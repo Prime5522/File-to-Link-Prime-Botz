@@ -1,258 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Botsthe/DATABASE@main/image/live.png">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>ᴘʀɪᴍᴇ ʙᴏᴛᴢ | {{file_name}}</title>
-    <link rel="icon" href="https://cdn.jsdelivr.net/gh/Botsthe/DATABASE@main/image/logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Botsthe/DATABASE@main/style.css">
-    <style>
-        /* বাটন ডিজাইন */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 12px 20px;
-            font-size: 15px;
-            font-weight: bold;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
-            cursor: pointer;
-            margin: 5px;
-            transition: all 0.3s ease-in-out;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
+  <meta charset="UTF-8" />
+  <title>{{ file_name }}</title>
+  <meta name="description" content="Stream high-quality videos and movies in 1080p. Experience seamless playback with multiple player options." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        /* Hover effect */
-        .btn:hover {
-            transform: scale(1.05);
-        }
-
-        .btn:active {
-            transform: scale(0.95);
-        }
-
-        /* বাটনের কালার */
-        .btn.download {
-            background-color: #28a745; /* Green */
-        }
-
-        .btn.download:hover {
-            background-color: #218838; /* Darker green */
-        }
-
-        .btn.copy-link {
-            background-color: #ffc107; /* Yellow */
-            color: #333;
-        }
-
-        .btn.copy-link:hover {
-            background-color: #e0a800; /* Darker yellow */
-        }
-
-        .btn.player {
-            background-color: #ff5722; /* Red */
-        }
-
-        .btn.player:hover {
-            background-color: #e64a19; /* Darker red */
-        }
-
-        /* নতুন বাটনের ডিজাইন */
-        .new-buttons .btn {
-            background-color: #00bcd4; /* Cyan */
-            color: white;
-        }
-
-        .new-buttons .btn:hover {
-            background-color: #0097a7; /* Dark cyan */
-        }
-
-        /* প্লেয়ার লোগোর সাইজ */
-        .player-logo {
-            width: 18px;
-            height: 18px;
-            margin-right: 8px;
-        }
-
-        /* ছোট ভিডিও */
-        .auto-video video {
-            width: 300px;
-            height: 150px;
-            border-radius: 5px;
-        }
-
-        /* কন্ট্রোল ও প্লেয়ার অপশন সেন্টার করে রাখার জন্য */
-        .controls, .player-options, .new-buttons {
-            margin-top: 15px;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .container {
-            text-align: center;
-            padding: 20px;
-        }
-
-        .feedback {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #000;
-            color: #fff;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-weight: bold;
-            animation: fadeOut 3s forwards;
-        }
-
-        @keyframes fadeOut {
-            0% { opacity: 1; }
-            100% { opacity: 0; }
-        }
-
-        /* স্ক্রলিং টেক্সট */
-        .ticker-wrapper {
-            position: relative;
-            width: 100%;
-            background-color: #28a745; /* সবুজ ব্যাকগ্রাউন্ড */
-            color: #fff;
-            font-size: 18px;
-            font-weight: bold;
-            overflow: hidden;
-            padding: 5px 0;
-            margin-top: 20px;
-        }
-
-        .ticker {
-            white-space: nowrap;
-            display: inline-block;
-            animation: ticker 60s linear infinite; /* স্লো স্ক্রল */
-            padding-left: 100%;
-        }
-
-        @keyframes ticker {
-            0% {
-                transform: translateX(100%);
-            }
-            100% {
-                transform: translateX(-100%);
-            }
-        }
-
-    </style>
+  <!-- External CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.plyr.io/3.6.12/plyr.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://developer-six-dusky.vercel.app/548/551/play.css" rel="stylesheet" />
 </head>
 
-<body>
-    <div class="container">
-        <header>
-            <h1 id="file-name">{{file_name}}</h1>
-        </header>
+<body class="bg-dark text-light">
+  <div class="d-flex flex-column min-vh-100">
 
-        <!-- স্ক্রলিং টেক্সট শিরোনাম -->
-        <div class="ticker-wrapper">
-            <div class="ticker">
-                <span>ᴛʜᴀɴᴋ ʏᴏᴜ ꜰᴏʀ ᴜꜱɪɴɢ ᴏᴜʀ ꜱᴇʀᴠᴇʀ 💞 ᴛʜɪꜱ ꜱᴇʀᴠᴇʀ ᴍᴀᴋᴇ ʙʏ ᴛᴇʟᴇɢʀᴀᴍ @ᴘʀɪᴍᴇ_ʙᴏᴛᴢ . আপনি যদি কোনও স্ট্রিমিং অ্যাপ অ্যাক্সেস করতে না পারেন, তাহলে এখান থেকে লিঙ্কটি কপি করুন, সেই অ্যাপে যান, অনলাইন স্ট্রিমের জন্য খুঁজুন এবং এটি খুঁজে পাওয়ার পরে সেখানে পেস্ট করুন । ধন্যবাদ আমাদের সাইট ব্যবহার করার জন্য 💞। 🚀 ᴡᴇ ᴅᴏ ɴᴏᴛ ʜᴏsᴛ ᴏʀ ᴏᴡɴ ᴀɴʏ ᴏғ ᴛʜᴇ ᴍᴏᴠɪᴇs ᴀᴠᴀɪʟᴀʙʟᴇ ᴏɴ ᴏᴜʀ ᴘʟᴀᴛғᴏʀᴍ. ᴀʟʟ ᴄᴏɴᴛᴇɴᴛ ɪs sᴏᴜʀᴄᴇᴅ ғʀᴏᴍ ᴘᴜʙʟɪᴄʟʏ ᴀᴠᴀɪʟᴀʙʟᴇ ʟɪɴᴋs ᴏɴ ᴛʜᴇ ɪɴᴛᴇɴᴇᴛ. 🌍 ᴏᴜʀ ɢᴏᴀʟ ɪs sɪᴍᴘʟʏ ᴛᴏ ᴍᴀᴋᴇ ᴀᴄᴄᴇss ᴇᴀsɪᴇʀ, ᴡɪᴛʜᴏᴜᴛ ᴀɴʏ ɪɴᴛᴇɴᴛɪᴏɴ ᴛᴏ ɪɴғʀɪɴɢᴇ ᴄᴏᴘʏʀɪɢʜᴛ ʟᴀᴡs. ❌🚫⚠️ ᴄᴏᴘʏʀɪɢʜᴛ ɴᴏᴛɪᴄᴇ: ɪғ ʏᴏᴜ ᴀʀᴇ ᴀ ʀɪɢʜᴛғᴜʟ ᴄᴏɴᴛᴇɴᴛ ᴏᴡɴᴇʀ ᴀɴʙ ʙᴇʟɪᴇᴠᴇ ᴛʜᴀᴛ ᴀɴʏ ᴍᴀᴛᴇʀɪᴀʟ sʜᴀʀᴇᴅ ᴛʜʀᴏᴜɢʜ ᴏᴜʀ ᴘʟᴀᴛғᴏʀᴍ ᴠɪᴏʟᴀᴛᴇs ʏᴏᴜʀ ᴄᴏᴘʏʀɪɢʜᴛ, 🛑 ᴘʟᴇᴀsᴇ ᴄᴏɴᴛᴀᴄᴛ ᴜs ᴅɪʀᴇᴄᴛ ᴡɪᴛʜᴏᴜᴛ ᴀɴʏ ᴅᴇʌʏ! ✈️ ᴛᴇʟᴇɢʀᴀᴍ: @MR_PRIME_KING 📩. ᴛʜᴀɴᴋ ʏᴏᴜ ᴠᴇʀʏ ᴍᴜᴄʜ ꜰᴏʀ ᴜꜱɪɴɢ ᴏᴜʀ ꜱɪᴛᴇ!.</span>
+    <!-- Header -->
+    <header class="bg-primary text-white py-2 shadow">
+      <div class="d-flex justify-content-between align-items-center container">
+        <h1 class="h4 mb-0 fw-bold">Prime Botz</h1>
+        <button id="theme-toggle-btn" class="btn btn-light theme-toggle-btn">
+          <i class="fa-solid fa-sun"></i> Light Mode
+        </button>
+      </div>
+    </header>
+
+    <!-- Main content -->
+    <main class="flex-grow-1 container py-3">
+
+      <!-- Player -->
+      <div class="player-wrapper mb-3">
+        <video id="myVideo" src="{{ file_url }}" class="w-100" controls>
+          Your browser does not support the video tag.
+        </video>
+        <script src="https://cdn.plyr.io/3.6.12/plyr.js"></script>
+      </div>
+
+      <!-- Player buttons -->
+      <div class="d-flex justify-content-between mb-2 flex-wrap gap-2">
+        <a onclick="mx_player()" class="btn btn-primary flex-fill">
+          <i class="fa fa-play"></i> <b>MX Player</b>
+        </a>
+        <a onclick="vlc_player()" class="btn btn-primary flex-fill">
+          <i class="fa fa-play"></i> <b>VLC Player</b>
+        </a>
+        <a onclick="playit_player()" class="btn btn-primary flex-fill">
+          <i class="fa fa-play"></i> <b>Play it</b>
+        </a>
+      </div>
+
+      <!-- Download -->
+      <div class="row g-3 mb-2">
+        <div class="col-md-6">
+          <a onclick="streamDownload()" class="btn btn-success w-100">
+            <i class="fa-solid fa-download me-2"></i> Download
+          </a>
+        </div>
+      </div>
+
+      <!-- Telegram create link -->
+      <a id="demo4" onclick="showLinkModal('{{ tg_button }}')" class="btn btn-warning w-100 mb-2">
+        <i class="fa-brands fa-telegram"></i> Create Like This Link
+      </a>
+
+      <!-- Share now -->
+      <a onclick="shareButton()" class="btn btn-danger w-100 mb-3">
+        <i class="fa fa-share-alt"></i> Share Now
+      </a>
+
+      <!-- File Info -->
+      <div class="card bg-dark text-light border-secondary mb-4">
+        <div class="card-header border-secondary">
+          <h5 class="mb-0"><i class="fa-solid fa-circle-info me-2"></i> File Information</h5>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6">
+              <p><strong>Name: </strong>{{ file_name }}</p>
+              <p><strong>Size: </strong>{{ file_size }}</p>
             </div>
+          </div>
         </div>
+      </div>
 
-        <div class="player-container">
-            <video class="plyr" controls poster="https://cdn.jsdelivr.net/gh/Botsthe/DATABASE@main/image/well.png">
-                <source src="{{file_url}}" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+      <!-- Disclaimer -->
+      <div class="alert alert-warning">
+        <h6 class="fw-bold"><i class="fa-solid fa-triangle-exclamation me-2"></i> Disclaimer</h6>
+        <p class="mb-0">This website only provides a service to help you play your video online without downloading.
+          You can report files or videos that contain issues like copyright infringement, +18 content, violence, etc.
+        </p>
+        <div class="button-container">
+          <a href="https://t.me/MR_PRIME_KING" class="report">Report</a>
         </div>
+      </div>
 
-        <!-- কন্ট্রোল বাটন -->
-        <div class="controls">
-            <button class="btn download" onclick="download()">
-                <i class="fas fa-cloud-download-alt"></i> Download
-            </button>
-            <button class="btn copy-link" onclick="copyLink()">
-                <i class="fas fa-link"></i> Copy Link
-            </button>
-        </div>
+    </main>
+  </div>
 
-        <!-- প্লেয়ার অপশন -->
-        <div class="player-options">
-            <button class="btn player" onclick="playOnline('vlc')">
-                <img src="https://cdn.jsdelivr.net/gh/Botsthe/DATABASE@main/image/vlc.png" class="player-logo"> VLC Player
-            </button>
-            <button class="btn player" onclick="playOnline('mx')">
-                <img src="https://cdn.jsdelivr.net/gh/Botsthe/DATABASE@main/image/mx.png" class="player-logo"> MX Player
-            </button>
-            <button class="btn player" onclick="playOnline('np')">
-                <img src="https://cdn.jsdelivr.net/gh/Botsthe/DATABASE@main/image/nPlayer.webp" class="player-logo"> nPlayer
-            </button>
-        </div>
+  <!-- JavaScript -->
+  <script src="https://developer-six-dusky.vercel.app/548/551/play.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      console.log("JS Loaded Successfully");
+    });
 
-        <!-- নতুন দুইটা ছোট বাটন -->
-        <div class="new-buttons">
-            <a href="https://t.me/Prime_Botz" class="btn download">
-                <img src="https://cdn.jsdelivr.net/gh/Botsthe/DATABASE@main/image/telegram.png" class="player-logo">
-                Join Our Updates Channel 🔮
-            </a>
+    function showLinkModal(link) {
+      prompt("🔗 Copy this link to share:", link);
+    }
 
-            <a href="https://t.me/Prime_Movies4u" class="btn download">
-                <img src="https://cdn.jsdelivr.net/gh/Botsthe/DATABASE@main/image/telegram.png" class="player-logo">
-                Click Here To More Videos 🎥
-            </a>
-        </div>
+    function streamDownload() {
+      const url = window.location.href.replace("/watch/", "/dl/");
+      window.location.href = url;
+    }
 
+    function shareButton() {
+      if (navigator.share) {
+        navigator.share({
+          title: document.title,
+          url: window.location.href
+        }).then(() => console.log('Shared!')).catch(err => console.error('Error sharing:', err));
+      } else {
+        alert("Sharing not supported in this browser.");
+      }
+    }
 
-        <!-- ছোট ভিডিও -->
-        <div class="auto-video">
-            <a href="https://t.me/Prime_Botz" target="_blank">
-                <video autoplay muted loop>
-                    <source src="https://files.catbox.moe/lvpq6s.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </a>
-        </div>
-    </div>
+    function mx_player() {
+      const link = window.location.href.replace("/watch/", "/dl/");
+      window.location.href = `intent:${link}#Intent;package=com.mxtech.videoplayer.ad;end`;
+    }
 
-    <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const videoElement = document.querySelector('.plyr');
-            new Plyr(videoElement);
-        });
+    function vlc_player() {
+      const link = window.location.href.replace("/watch/", "/dl/");
+      window.location.href = `vlc://${link}`;
+    }
 
-        const currentUrl = window.location.href;
-        const finalUrl = currentUrl.replace("/watch/", "/dl/");
-
-        function playOnline(player) {
-            const playerUrls = {
-                vlc: `vlc://${finalUrl}`,
-                mx: `intent:${finalUrl}#Intent;package=com.mxtech.videoplayer.ad;end`,
-                np: `nplayer-${finalUrl}`
-            };
-            window.location.href = playerUrls[player] || finalUrl;
-        }
-
-        function download() {
-            window.location.href = finalUrl;
-        }
-
-        function copyLink() {
-            navigator.clipboard.writeText(finalUrl)
-                .then(() => {
-                    const feedback = document.createElement('div');
-                    feedback.className = 'feedback';
-                    feedback.textContent = '📋 Link copied to clipboard!';
-                    document.body.appendChild(feedback);
-                    setTimeout(() => feedback.remove(), 3000);
-                })
-                .catch(err => console.error('Could not copy text: ', err));
-        }
-    </script>
-
+    function playit_player() {
+      const link = window.location.href.replace("/watch/", "/dl/");
+      window.location.href = `playit://${link}`;
+    }
+  </script>
 </body>
+
     </html>
-    
