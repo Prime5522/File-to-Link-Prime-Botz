@@ -21,7 +21,7 @@
     <!-- Header -->
     <header class="bg-primary text-white py-2 shadow">
       <div class="d-flex justify-content-between align-items-center container">
-        <h1 class="h4 mb-0 fw-bold">Prime Botz</h1>
+        <h1 class="h4 mb-0 fw-bold">PrimeXBots</h1>
         <button id="theme-toggle-btn" class="btn btn-light theme-toggle-btn">
           <i class="fa-solid fa-sun"></i> Light Mode
         </button>
@@ -30,16 +30,13 @@
 
     <!-- Main content -->
     <main class="flex-grow-1 container py-3">
-
-      <!-- Player -->
       <div class="player-wrapper mb-3">
-        <video id="myVideo" src="{{ file_url }}" class="w-100" controls>
+        <video id="myVideo" src="{{file_url}}" class="w-100" controls>
           Your browser does not support the video tag.
         </video>
         <script src="https://cdn.plyr.io/3.6.12/plyr.js"></script>
       </div>
-
-      <!-- Player buttons -->
+      
       <div class="d-flex justify-content-between mb-2 flex-wrap gap-2">
         <a onclick="mx_player()" class="btn btn-primary flex-fill">
           <i class="fa fa-play"></i> <b>MX Player</b>
@@ -51,8 +48,7 @@
           <i class="fa fa-play"></i> <b>Play it</b>
         </a>
       </div>
-
-      <!-- Download -->
+      
       <div class="row g-3 mb-2">
         <div class="col-md-6">
           <a onclick="streamDownload()" class="btn btn-success w-100">
@@ -60,18 +56,15 @@
           </a>
         </div>
       </div>
-
-      <!-- Telegram create link -->
-      <a id="demo4" onclick="showLinkModal('https://t.me/File_To_Link_Prime_Bot?start=start')" class="btn btn-warning w-100 mb-2">
+      
+      <a id="demo4" href="https://t.me/File_To_Link_PrimeBot" target="_blank" class="btn btn-warning w-100 mb-2">
         <i class="fa-brands fa-telegram"></i> Create Like This Link
       </a>
-
-      <!-- Share now -->
+      
       <a onclick="shareButton()" class="btn btn-danger w-100 mb-3">
         <i class="fa fa-share-alt"></i> Share Now
       </a>
-
-      <!-- File Info -->
+      
       <div class="card bg-dark text-light border-secondary mb-4">
         <div class="card-header border-secondary">
           <h5 class="mb-0"><i class="fa-solid fa-circle-info me-2"></i> File Information</h5>
@@ -79,69 +72,32 @@
         <div class="card-body">
           <div class="row">
             <div class="col-md-6">
-              <p><strong>Name: </strong>{{ file_name }}</p>
-              <p><strong>Size: </strong>{{ file_size }}</p>
+              <p><strong>Name: </strong>{{file_name}}</p>
+              <p><strong>Size: </strong>{{file_size}}</p>
             </div>
           </div>
         </div>
       </div>
-
-      <!-- Disclaimer -->
+      
       <div class="alert alert-warning">
         <h6 class="fw-bold"><i class="fa-solid fa-triangle-exclamation me-2"></i> Disclaimer</h6>
-        <p class="mb-0">This website only provides a service to help you play your video online without downloading.
-          You can report files or videos that contain issues like copyright infringement, +18 content, violence, etc.
-        </p>
+        <p class="mb-0">This website only provides a service to help you play your video online without downloading. You can report files or videos that contain issues like copyright infringement, +18 content, violence, etc.</p>
         <div class="button-container">
-          <a href="https://t.me/MR_PRIME_KING" class="report">Report</a>
+          <a href="https://t.me/Prime_Support_group" class="report">Report</a>
         </div>
       </div>
-
-    </main>
   </div>
-
-  <!-- JavaScript -->
+  </main>
+  <!-- Footer is now generated via JavaScript -->
+  </div>
+  
+  <!-- External JS -->
   <script src="https://developer-six-dusky.vercel.app/548/551/play.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       console.log("JS Loaded Successfully");
     });
-
-    function showLinkModal(link) {
-      prompt("🔗 Copy this link to share:", link);
-    }
-
-    function streamDownload() {
-      const url = window.location.href.replace("/watch/", "/dl/");
-      window.location.href = url;
-    }
-
-    function shareButton() {
-      if (navigator.share) {
-        navigator.share({
-          title: document.title,
-          url: window.location.href
-        }).then(() => console.log('Shared!')).catch(err => console.error('Error sharing:', err));
-      } else {
-        alert("Sharing not supported in this browser.");
-      }
-    }
-
-    function mx_player() {
-      const link = window.location.href.replace("/watch/", "/dl/");
-      window.location.href = `intent:${link}#Intent;package=com.mxtech.videoplayer.ad;end`;
-    }
-
-    function vlc_player() {
-      const link = window.location.href.replace("/watch/", "/dl/");
-      window.location.href = `vlc://${link}`;
-    }
-
-    function playit_player() {
-      const link = window.location.href.replace("/watch/", "/dl/");
-      window.location.href = `playit://${link}`;
-    }
   </script>
 </body>
 
-    </html>
+</html>
